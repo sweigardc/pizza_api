@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pizza-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pizza-api
+  template:
+    metadata:
+      labels:
+        app: pizza-api
+    spec:
+      containers:
+      - name: pizza-api
+        image: pizza-api:local
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        env:
+        - name: POSTGRES_USER
+          value: "pizza_user"
+        - name: POSTGRES_PASSWORD
+          value: "pizza_password"
+        - name: POSTGRES_HOSTNAME
+          value: "postgres-service"
+        - name: POSTGRES_DB
+          value: "pizza_api"
+        - name: DATABASE_PORT
+          value: "5432"
