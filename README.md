@@ -1,22 +1,36 @@
-# Project Setup
+# Pizza API - FastAPI with Kubernetes
 
-## Start project locally
+A RESTful API for managing pizzas and ingredients, built with FastAPI and deployable to Kubernetes. This project demonstrates modern Python web development with containerization and orchestration.
 
+## Features
+
+- **Pizza Management**: Create, read, update, and delete pizzas with custom ingredients
+- **Ingredient Management**: Manage a comprehensive ingredient database with allergen tracking
+- **Advanced Search**: Search pizzas by name, description, and ingredients
+- **Database Support**: PostgreSQL for production with SQLite fallback for development
+- **API Documentation**: Auto-generated OpenAPI/Swagger documentation
+- **Kubernetes Ready**: Complete deployment manifests for container orchestration
+- **Testing Suite**: Comprehensive test coverage for all endpoints
+
+## Technology Stack
+
+- **Backend**: FastAPI (Python 3.9+)
+- **Database**: PostgreSQL 13 (primary), SQLite (fallback)
+- **ORM**: SQLAlchemy with Alembic migrations
+- **Containerization**: Docker with multi-stage builds
+- **Orchestration**: Kubernetes with Minikube support
+- **Testing**: Pytest with FastAPI TestClient
+
+## Virtual Environment setup
 
 	mkvirtualenv venv -p python3
 	workon venv
 	pip install -r requirements.txt
 	uvicorn app.main:app --reload
 
-
 FastAPI HTTP server starts on port 8000.
 
-## Start project with Docker
-
-  docker compose up -d
-
-
-## Start project with Kubernetes
+## Kubernetes Setup
 
 ### Prerequisites
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/) installed and running
